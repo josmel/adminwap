@@ -19,6 +19,7 @@ class Application_Model_DbTable_Banner2 extends Core_Db_Table
         if(isset($params['codtbanner'])) $data['codtbanner'] = $params['codtbanner'];
         if(isset($params['idbanner'])) $data['idbanner'] = $params['idbanner'];
         if(isset($params['codproy'])) $data['codproy'] = $params['codproy'];
+         if(isset($params['norden'])) $data['norden'] = $params['norden'];
         if(isset($params['nombre'])) $data['nombre'] = $params['nombre'];
         if(isset($params['titulo'])) $data['titulo'] = $params['titulo'];
         if(isset($params['descripcion'])) $data['descripcion'] = $params['descripcion'];

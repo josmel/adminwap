@@ -9,7 +9,7 @@ yOSON.datable = {
             null, null, {"sClass": "center"}
         ]
     },
-    "#tblBanner": {
+    "#tblBanner": { 
         "fnRowCallback": function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
             $('td:eq(1)', nRow).html('<a target="_blank" href="' + aData[1] + '">\n\
                 <img width="160px" height="40px" src="' + aData[1] + '"/>\n\

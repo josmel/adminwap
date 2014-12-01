@@ -52,6 +52,7 @@ class Admin_BannerController extends Core_Controller_ActionAdmin {
         $obj = new Application_Entity_RunSql('Banner');
         if ($this->_request->isPost()) {
             $dataForm = $this->_request->getPost();
+            var_dump($dataForm);exit;
             try {
                 $msj = array();
                 if (!$form->basico128->receive() || !$form->avanzado->receive() ||

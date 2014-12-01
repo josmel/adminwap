@@ -14,17 +14,17 @@ defined('APPLICATION_PUBLIC')
 // Define application environment
 defined('APPLICATION_ENV')
     || define('APPLICATION_ENV',
-        (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'production'));
+        (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'development'));
 
 // Ensure library/ is on include_path
 set_include_path(implode(PATH_SEPARATOR,
         array(
-        realpath(APPLICATION_PATH . '/../library'),
+        realpath('/var/library'),
         get_include_path(),
     )));
 
 /** Zend_Application */
-require_once 'Zend/Application.php';
+require_once '/var/library/Zend/Application.php';
 
 class index
 {

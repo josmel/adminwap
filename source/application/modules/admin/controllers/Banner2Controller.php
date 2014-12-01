@@ -18,14 +18,24 @@ class Admin_Banner2Controller extends Core_Controller_ActionAdmin {
         }
 
         if ($this->_request->isPost()) {
-            
             //editar, eliminar o agregar item segun sus estados
             $params = $this->getAllParams();
-            
-            //var_dump($params);exit;
+
             $bannerType = $mBannerType->findById($selectedType);
-           
-          // $setBannerHelper = $this->_helper->getHelper('SetBannerGroup');
+//
+//            
+//            $fileName=$_FILES["avanzado"];
+//            $nombre = explode('.', $fileName['name'][0]);
+//            
+//            var_dump($nombre);exit;
+//            $ext = $nombre[count($nombre) - 1];
+//            unset($nombre[count($nombre) - 1]);
+//            $nombre = implode('_', $nombre);
+//            $code = Core_Utils_Utils::getRamdomChars(15, 'A');
+//            $nombre = $code . '.' . $ext;
+//            $newName = ROOT_IMG_DINAMIC . "/banner/avanzado/" . $nombre;
+//            rename($fileName, $newName);
+            // $setBannerHelper = $this->_helper->getHelper('SetBannerGroup');
             $setBannerHelper = $this->getHelper('SetBannerGroup');
             $setBannerHelper->setBanners(
                     $params, $bannerType, $this->_identity->iduser, $mBanner, new Admin_Model_Image()
@@ -33,40 +43,19 @@ class Admin_Banner2Controller extends Core_Controller_ActionAdmin {
         }
 
         $banners = $mBanner->findAllByType($selectedType);
-        
-        if ($selectedType == 'HOMEOFVI') {
-            $mensaje = 'Las imágenes deben tener un máximo de 604 pixeles por 300 pixeles';
-        } elseif ($selectedType == 'HALLFAME') {
-            $mensaje = 'Las imágenes deben tener un máximo de 300 pixeles por 570 pixeles';
-        } elseif ($selectedType == 'LANDPORT') {
-            $mensaje = 'Las imágenes deben tener un máximo de 486 pixeles por 272 pixeles';
-        }
-        $this->addYosonVar('bannerType', SITE_URL . 'banner/type/');
+
+//        if ($selectedType == 'HOMEOFVI') {
+//            $mensaje = 'Las imágenes deben tener un máximo de 604 pixeles por 300 pixeles';
+//        } elseif ($selectedType == 'HALLFAME') {
+//            $mensaje = 'Las imágenes deben tener un máximo de 300 pixeles por 570 pixeles';
+//        } elseif ($selectedType == 'LANDPORT') {
+//            $mensaje = 'Las imágenes deben tener un máximo de 486 pixeles por 272 pixeles';
+//        }
+        $this->addYosonVar('bannerType', SITE_URL . 'admin/banner2?type=');
         $this->view->types = $bannerTypes;
         $this->view->selectedType = $selectedType;
         $this->view->banners = $banners;
-        $this->view->mensaje = $mensaje;
-    }
-
-    public function listAction() {
-        $this->_helper->layout()->disableLayout();
-        $this->_helper->viewRenderer->setNoRender(true);
-        $params = $this->_getAllParams();
-        $iDisplayStart = isset($params['iDisplayStart']) ? $params['iDisplayStart'] : null;
-        $iDisplayLength = isset($params['iDisplayLength']) ? $params['iDisplayLength'] : null;
-        $sEcho = isset($params['sEcho']) ? $params['sEcho'] : 1;
-        $sSearch = isset($params['sSearch']) ? $params['sSearch'] : '';
-        $obj = new Application_Entity_DataTable('Banner', 10, $sEcho, false);
-        $obj->setIconAction($this->action());
-        $query = !empty($sSearch) ? " AND titulo like '%" . $sSearch . "%'" : " ";
-        $obj->setSearch($query);
-
-
-
-        $this->getResponse()
-                ->setHttpResponseCode(200)
-                ->setHeader('Content-type', 'application/json;charset=UTF-8', true)
-                ->appendBody(json_encode($obj->getQuery($iDisplayStart, $iDisplayLength)));
+        // $this->view->mensaje = $mensaje;
     }
 
     public function bannerImageAction() {
@@ -112,7 +101,6 @@ class Admin_Banner2Controller extends Core_Controller_ActionAdmin {
                 $rpta['msg'] = 'Ocurrió un error al subir la imagen.';
             }
         }
-
         echo json_encode($rpta);
         exit;
     }
@@ -205,6 +193,8 @@ class Admin_Banner2Controller extends Core_Controller_ActionAdmin {
     }
 
     public function deleteAction() {
+        echo 'mamam';
+        exit;
         $this->_helper->layout()->disableLayout();
         $this->_helper->viewRenderer->setNoRender(true);
         $id = $this->getParam('id');
@@ -226,11 +216,4 @@ class Admin_Banner2Controller extends Core_Controller_ActionAdmin {
                 ->appendBody(json_encode($rpta));
     }
 
-    function action() {
-        $action = "<a class=\"tblaction ico-edit\" title=\"Editar\" href=\"/banner/edit/id/__ID__\">Editar</a>
-                    <a data-id=\"__ID__\" class=\"tblaction ico-delete\" title=\"Eliminar\"  href=\"/banner/delete\">Eliminar</a>";
-        return $action;
-    }
-
 }
-

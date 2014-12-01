@@ -39,9 +39,9 @@ class Core_Controller_ActionAdmin extends Core_Controller_Action {
             'dashboard' =>
             array('class' => 'icad-dashb', 'url' => '/dashboard', 'title' => 'Dashboard'),
             'banner' =>
-            array('class' => 'icad-prom', 'url' => '/admin/banner', 'title' => 'Banners '),
+            array('class' => 'icad-prom', 'url' => '/admin/banner', 'title' => 'BANNERS '),
             'text' =>
-            array('class' => 'icad-prom', 'url' => '/admin/text', 'title' => 'Text Link')
+            array('class' => 'icad-prom', 'url' => '/admin/text', 'title' => 'TEXT LINK')
         );
         return $menu;
     }
@@ -49,17 +49,17 @@ class Core_Controller_ActionAdmin extends Core_Controller_Action {
     function getMenu() {
             $menu = array(
                 'dashboard' =>
-                array('class' => 'icad-dashb', 'url' => '/dashboard', 'title' => 'Dashboard'),
+                array('class' => 'icad-dashb', 'url' => '/dashboard', 'title' => 'DASHBOARD'),
                 'banner' =>
-                array('class' => 'icad-prom', 'url' => '/admin/banner', 'title' => 'Banners '),
+                array('class' => 'icad-prom', 'url' => '/admin/banner', 'title' => 'BANNERS '),
                 'servicio' =>
-                array('class' => 'icad-prom', 'url' => '/admin/servicio', 'title' => 'Servicio'),
+                array('class' => 'icad-prom', 'url' => '/admin/servicio', 'title' => 'SEVICIOS'),
                 'musica' =>
-                array('class' => 'icad-prom', 'url' => '/admin/musica', 'title' => 'Música'),
+                array('class' => 'icad-prom', 'url' => '/admin/musica', 'title' => 'MÚSICA'),
                 'juego' =>
-                array('class' => 'icad-prom', 'url' => '/admin/juego', 'title' => 'Juegos'),
+                array('class' => 'icad-prom', 'url' => '/admin/juego', 'title' => 'JUEGOS'),
                 'text' =>
-                array('class' => 'icad-prom', 'url' => '/admin/text', 'title' => 'Text Link'),
+                array('class' => 'icad-prom', 'url' => '/admin/text', 'title' => 'TEXT LINK'),
                   'banner2' =>
                 array('class' => 'icad-prom', 'url' => '/admin/banner2', 'title' => 'NEW BANNERS')
             );

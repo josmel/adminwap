@@ -28,22 +28,22 @@ class App_Controller_Action_Helper_SetBannerGroup extends Zend_Controller_Action
                 $dataItem['vchusumodif'] = $idUser;
                 $mBanner->update($dataItem, $dataItem['idbanner']);
             } else {
-                if(isset($dataItem['image'])) { 
-                    $resize = new Core_Utils_ResizeImage(
-                            ROOT_IMG_DINAMIC.'/banner/origin/'.$dataItem['image']
-                        );
-
-                    $resize->resizeImage(
-                            $bannerType['anchoimg'], $bannerType['altoimg'], 
-                            'exact'
-                        );
-                    
-                    $destinyFolder = ROOT_IMG_DINAMIC.'/banner/'.$bannerType['codproy']
-                        .'/'.$bannerType['anchoimg'].'x'.$bannerType['altoimg'];
-                    if(!file_exists($destinyFolder))
-                        mkdir($destinyFolder, 0777, true);
-                        
-                    $resize->saveImage($destinyFolder.'/'.$dataItem['image']);
+                if(isset($dataItem['image'])) {
+//                    $resize = new Core_Utils_ResizeImage(
+//                            ROOT_IMG_DINAMIC.'/banner/origin/'.$dataItem['image']
+//                        );
+//
+//                    $resize->resizeImage(
+//                            $bannerType['anchoimg'], $bannerType['altoimg'], 
+//                            'exact'
+//                        );
+//                    
+//                    $destinyFolder = ROOT_IMG_DINAMIC.'/banner/'.$bannerType['codproy']
+//                        .'/'.$bannerType['anchoimg'].'x'.$bannerType['altoimg'];
+//                    if(!file_exists($destinyFolder))
+//                        mkdir($destinyFolder, 0777, true);
+//                        
+//                    $resize->saveImage($destinyFolder.'/'.$dataItem['image']);
 
                     $image = array(
                         'nombre' => $dataItem['image'],

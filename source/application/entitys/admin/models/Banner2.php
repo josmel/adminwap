@@ -20,7 +20,7 @@ class Admin_Model_Banner2 extends Core_Model
                 )->join(array('i' => 'timagen'), 
                         "b.idimagen = i.idimagen", 
                         array('imagen' => 'i.nombre')
-                )->where("b.codtbanner LIKE ?", $idType)
+                ) ->where("b.codtbanner = ?", $idType)
                 ->order("b.norder ASC");
         if (!$visible) $select->where("b.vchestado IN ('A', 'I')");
         else $select->where("b.vchestado LIKE 'A'");
